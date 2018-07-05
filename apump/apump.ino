@@ -5,10 +5,17 @@
   на плате Digispark с отрезанным светодиодом, стабилизатором
   и двумя диодами на шину USB. На голом камне будет работать ещё лучше!
 
+  Проект Алекса Гайвера
+  https://github.com/AlexGyver/Auto_Pump_Sleep
+
   Подправил на старт после включения с задержкой
   Убрал некоторый мусор
-  dr-dobermann, 2018.
+  
+  dr-dobermann, 2018
+  
+  https://github.com/dr-dobermann/auto_pump
 */
+
 #include <avr/wdt.h>
 #include <avr/sleep.h>
 #include <avr/interrupt.h>
@@ -20,7 +27,7 @@
 const uint32_t 
     PERIOD      = 12*60*60, // пауза между включениями помпы в секундах
     START_DELAY = 20,       // задержка перед стартом
-    WORK        = 1.5*60,   // время работы помпы в секундах
+    WORK        = 3*60,     // время работы помпы в секундах
     MOS         = 1;        // пин мосфета помпы
 
 uint32_t mainTimer = PERIOD - START_DELAY, 
